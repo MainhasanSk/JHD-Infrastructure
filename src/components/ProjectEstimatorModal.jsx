@@ -11,35 +11,35 @@ export default function ProjectEstimatorModal({ isOpen, onClose }) {
 
   // Approximate realistic guidance based on standard construction ranges
   const estimateTimelineMonths = () => {
-    if (area <= 1200) return '6 - 8 Months';
-    if (area <= 2500) return '8 - 12 Months';
-    if (area <= 5000) return '12 - 16 Months';
-    return '16 - 22 Months';
+    if (area <= 1200) return '5 - 7 Months';
+    if (area <= 2500) return '8 - 11 Months';
+    if (area <= 5000) return '11 - 15 Months';
+    return '15 - 20 Months';
   };
 
   const projectTypeLabels = {
     residential: 'Residential Custom Home / Villa',
-    commercial: 'Commercial / Institutional Building',
-    turnkey: 'Full Turnkey Civil & Interior'
+    commercial: 'Commercial Complex / Institutional',
+    turnkey: 'Full Turnkey Civil, PEB & Interior'
   };
 
   const tierDetails = {
     standard: {
-      name: 'Standard Engineering',
-      desc: 'Solid structural RCC frame, standard grade masonry, standard electrical & sanitary fixtures.'
+      name: 'Standard Engineering Tier',
+      desc: 'Solid structural RCC frame, standard grade masonry, certified steel, basic electrical & sanitary provisions.'
     },
     premium: {
-      name: 'Premium Axomi Standard',
-      desc: 'Architectural elevations, superior brand cement/steel, vitrified tiles, custom gate & modern lighting provisions.'
+      name: 'Premium JHD Standard',
+      desc: 'Architectural 3D elevations, brand cement & primary TMT steel, vitrified tiles, fast 5-day GMDA permit assistance.'
     },
     luxury: {
-      name: 'Luxury Architectural',
-      desc: 'Bespoke facade louvers, designer sanitaryware, false ceilings, acoustic considerations & high-end joinery.'
+      name: 'Luxury Architectural & Turnkey',
+      desc: 'Bespoke facade louvers, designer sanitaryware, false ceilings, acoustic treatment, swimming pool & high-end joinery.'
     }
   };
 
   const handleWhatsAppShare = () => {
-    const text = `*Axomi Construction Project Estimator Summary*\n- Built-Up Area: ${area.toLocaleString()} sq. ft.\n- Project Type: ${projectTypeLabels[projectType]}\n- Finishing Tier: ${tierDetails[qualityTier].name}\n- Estimated Delivery Timeline: ${estimateTimelineMonths()}\n\nHello Axomi Construction, I calculated this preliminary estimate on your website and would like to get a formal architectural consultation and BOQ quote.`;
+    const text = `*JHD Infrastructure Project Estimator Summary*\n- Built-Up Area: ${area.toLocaleString()} sq. ft.\n- Project Type: ${projectTypeLabels[projectType]}\n- Finishing Tier: ${tierDetails[qualityTier].name}\n- Estimated Delivery Timeline: ${estimateTimelineMonths()}\n\nHello JHD Infrastructure, I calculated this preliminary scope on your website and would like to get a formal architectural consultation, bank loan BOQ, and building permission assistance.`;
     window.open(`https://wa.me/${companyData.whatsapp.number}?text=${encodeURIComponent(text)}`, '_blank');
   };
 
@@ -56,10 +56,10 @@ export default function ProjectEstimatorModal({ isOpen, onClose }) {
             </div>
             <div>
               <h3 className="font-display font-bold text-base sm:text-lg text-white">
-                Preliminary Project Scope Estimator
+                Project Scope & Timeline Estimator
               </h3>
               <p className="text-[11px] text-gold-400">
-                Plan your construction parameters with Axomi Construction
+                Plan your construction parameters with JHD Infrastructure
               </p>
             </div>
           </div>
@@ -86,7 +86,7 @@ export default function ProjectEstimatorModal({ isOpen, onClose }) {
             <input
               type="range"
               min="600"
-              max="12000"
+              max="15000"
               step="100"
               value={area}
               onChange={(e) => setArea(Number(e.target.value))}
@@ -95,7 +95,7 @@ export default function ProjectEstimatorModal({ isOpen, onClose }) {
             <div className="flex justify-between text-[10px] text-slate-500 mt-1">
               <span>600 sq.ft. (Compact)</span>
               <span>3,500 sq.ft. (Medium Villa)</span>
-              <span>12,000+ sq.ft. (Large / Commercial)</span>
+              <span>15,000+ sq.ft. (Commercial / PEB)</span>
             </div>
           </div>
 
@@ -107,8 +107,8 @@ export default function ProjectEstimatorModal({ isOpen, onClose }) {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
               {[
                 { id: 'residential', label: 'Residential Home' },
-                { id: 'commercial', label: 'Commercial Hall' },
-                { id: 'turnkey', label: 'Turnkey Civil + Interior' }
+                { id: 'commercial', label: 'Commercial Complex' },
+                { id: 'turnkey', label: 'PEB / Turnkey Build' }
               ].map((type) => (
                 <button
                   key={type.id}
@@ -179,15 +179,15 @@ export default function ProjectEstimatorModal({ isOpen, onClose }) {
                 </span>
               </div>
               <div className="p-2.5 rounded bg-navy-950/70 border border-slate-800">
-                <span className="text-[10px] uppercase text-slate-400 block font-medium">Next Milestone</span>
+                <span className="text-[10px] uppercase text-slate-400 block font-medium">Next Step</span>
                 <span className="font-display font-bold text-sm sm:text-base text-gold-300">
-                  Site Visit & Drawing
+                  Land Survey & Drawings
                 </span>
               </div>
             </div>
 
             <p className="text-[11px] text-slate-400 leading-relaxed italic">
-              * Actual rates and timelines depend on soil conditions, municipal approvals, architectural complexity, and client selections. We provide an exact itemized Bill of Quantities (BOQ) after consultation.
+              * Official rates depend on soil testing, structural load, byelaw requirements, and architectural selections. JHD Infrastructure provides an itemized Bill of Quantities (BOQ) and bank loan estimates after site inspection.
             </p>
           </div>
 

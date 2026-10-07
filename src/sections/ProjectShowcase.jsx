@@ -5,14 +5,14 @@ import { companyData } from '../data/companyData';
 export default function ProjectShowcase({ onSelectProject }) {
   const [activeFilter, setActiveFilter] = useState('All');
 
-  const categories = ['All', 'Residential', 'Commercial', 'Structural & Site'];
+  const categories = ['All', ...Array.from(new Set(companyData.projects.map((p) => p.category)))];
 
   const filteredProjects = activeFilter === 'All'
     ? companyData.projects
     : companyData.projects.filter(p => p.category === activeFilter);
 
   return (
-    <section id="projects" className="py-24 relative bg-navy-950">
+    <section id="all-projects" className="scroll-mt-20 py-24 relative bg-navy-950">
       {/* Blueprint grid accent */}
       <div className="absolute inset-0 bg-blueprint opacity-20 pointer-events-none"></div>
 

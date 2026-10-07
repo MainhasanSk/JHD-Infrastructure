@@ -4,7 +4,7 @@ import { companyData } from '../data/companyData';
 
 export default function Team({ onOpenConsultation }) {
   return (
-    <section id="team" className="py-24 relative bg-navy-900 border-t border-b border-slate-800/80">
+    <section id="team" className="scroll-mt-20 py-24 relative bg-navy-900 border-t border-b border-slate-800/80">
       {/* Blueprint grid accent */}
       <div className="absolute inset-0 bg-blueprint-dense opacity-20 pointer-events-none"></div>
 
@@ -17,10 +17,10 @@ export default function Team({ onOpenConsultation }) {
             </span>
           </div>
           <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
-            Meet Our Team
+            Meet Our Leadership & Engineering Team
           </h2>
           <p className="text-sm sm:text-base text-slate-300">
-            Experienced leadership, civil engineers, site supervisors, and technical coordinators dedicated to building your vision with total integrity.
+            Certified civil engineers, creative architects, GMDA liaison officers, and experienced site supervisors dedicated to building your dream home with total integrity.
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export default function Team({ onOpenConsultation }) {
                 </div>
 
                 <div className="pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
-                  <span className="font-medium text-slate-400">Axomi Construction</span>
+                  <span className="font-medium text-slate-400">JHD Infrastructure</span>
                   <span className="text-emerald-400 font-medium">On-Duty</span>
                 </div>
               </div>
@@ -74,7 +74,7 @@ export default function Team({ onOpenConsultation }) {
         {/* Notice for Client Customization */}
         <div className="mt-12 p-4 rounded-xl bg-navy-950/60 border border-slate-800 text-center max-w-xl mx-auto">
           <p className="text-xs text-slate-400">
-            <span className="text-gold-400 font-semibold">Note for Company:</span> Individual team member bios, official titles, and specialized professional credentials can be effortlessly updated in the client administration file.
+            <span className="text-gold-400 font-semibold">Head Office:</span> Sawkuchi, Dakshin Gaon, House N.3 (3rd floor), Near NEF college, Guwahati, Assam.
           </p>
         </div>
       </div>

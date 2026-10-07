@@ -13,7 +13,7 @@ export default function Testimonials({ onOpenConsultation }) {
 
           <div className="space-y-2">
             <span className="text-[11px] font-bold uppercase tracking-widest text-gold-400 block">
-              Client Feedback Section
+              Client Feedback & Handover
             </span>
             <h2 className="font-display font-black text-2xl sm:text-3xl text-white">
               Authentic Client Reviews & Handover Letters
@@ -21,7 +21,7 @@ export default function Testimonials({ onOpenConsultation }) {
           </div>
 
           <p className="text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Axomi Construction Private Limited values authentic client relationships. This section is structured to showcase verified client completion certificates and genuine homeowner reviews upon company authorization.
+            <strong>JHD Infrastructure</strong> values transparent, long-term client relationships. We take immense pride in delivering on time, adhering to byelaw approvals, and providing structural craftsmanship that endures generations.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto text-left pt-2">
@@ -31,17 +31,17 @@ export default function Testimonials({ onOpenConsultation }) {
                 <span>Zero Fabricated Reviews Policy</span>
               </div>
               <p className="text-xs text-slate-400 leading-snug">
-                We believe in genuine trust. Every review added will reflect a verified completed site and satisfied owner.
+                Every review represents a verified physical site delivered under full client satisfaction and GMDA compliance.
               </p>
             </div>
 
             <div className="p-4 rounded-xl bg-navy-850/80 border border-slate-800">
               <div className="flex items-center gap-2 text-xs font-bold text-white mb-1">
                 <FileText size={14} className="text-gold-400" />
-                <span>Ready for Client Video / Text Feed</span>
+                <span>Client Completion Certificates</span>
               </div>
               <p className="text-xs text-slate-400 leading-snug">
-                Designed to easily link written testimonials, video walkthroughs, and project handover notes.
+                Formal project completion records, structural stability certificates, and occupancy documentation.
               </p>
             </div>
           </div>
@@ -51,7 +51,7 @@ export default function Testimonials({ onOpenConsultation }) {
               onClick={onOpenConsultation}
               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-md text-xs font-bold uppercase tracking-wider text-navy-950 bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-300 hover:to-gold-400 transition-all"
             >
-              <span>Speak Directly with Our Team</span>
+              <span>Speak Directly with Our Engineers</span>
               <ArrowRight size={14} />
             </button>
           </div>

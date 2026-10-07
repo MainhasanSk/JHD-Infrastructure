@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MessageSquare, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
+import { Phone, MessageSquare, ArrowRight, ShieldCheck, Sparkles, Mail } from 'lucide-react';
 import { companyData } from '../data/companyData';
 
 export default function FinalCTA({ onOpenConsultation }) {
@@ -18,16 +18,17 @@ export default function FinalCTA({ onOpenConsultation }) {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30">
               <Sparkles size={13} className="text-gold-400" />
               <span className="text-[11px] font-bold uppercase tracking-wider text-gold-300">
-                Begin Your Journey With Axomi
+                Begin Your Journey With JHD Infrastructure
               </span>
             </div>
 
             <h2 className="font-display font-black text-3xl sm:text-5xl text-white tracking-tight">
-              Let's Build Your Vision.
+              YOUR DREAM HOME, <br />
+              <span className="text-gold-gradient">OUR RESPONSIBILITY</span>
             </h2>
 
             <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
-              Have a construction project in mind? Let's discuss your requirements and explore the possibilities.
+              Ready to construct your home, commercial project, PEB warehouse, or obtain fast 5-day GMDA building permission? Let's discuss your requirements today.
             </p>
 
             {/* Main Action Buttons */}
@@ -36,7 +37,7 @@ export default function FinalCTA({ onOpenConsultation }) {
                 onClick={onOpenConsultation}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-md text-xs sm:text-sm font-bold uppercase tracking-wider text-navy-950 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 hover:from-gold-300 hover:to-gold-500 shadow-gold-glow transition-all duration-300 hover:scale-105 active:scale-95"
               >
-                <span>Start a Conversation</span>
+                <span>Request a Consultation</span>
                 <ArrowRight size={17} />
               </button>
 
@@ -45,20 +46,12 @@ export default function FinalCTA({ onOpenConsultation }) {
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-md text-xs sm:text-sm font-bold uppercase tracking-wider text-white bg-navy-800 hover:bg-navy-750 border border-slate-700 hover:border-gold-500/50 transition-colors"
               >
                 <Phone size={16} className="text-gold-400" />
-                <span>Call Axomi: {companyData.phones[0].display}</span>
+                <span>Call: {companyData.phones[0].display}</span>
               </a>
             </div>
 
-            {/* Secondary Phone & Direct WhatsApp Links */}
+            {/* Secondary Direct WhatsApp & Email Links */}
             <div className="pt-4 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 border-t border-slate-800/80 max-w-lg mx-auto">
-              <a
-                href={`tel:${companyData.phones[1].tel}`}
-                className="flex items-center gap-1.5 hover:text-gold-400 font-semibold transition-colors"
-              >
-                <Phone size={13} className="text-gold-400" />
-                <span>Direct Line: {companyData.phones[1].display}</span>
-              </a>
-
               <a
                 href={companyData.whatsapp.link}
                 target="_blank"
@@ -66,7 +59,15 @@ export default function FinalCTA({ onOpenConsultation }) {
                 className="flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 font-semibold transition-colors"
               >
                 <MessageSquare size={13} />
-                <span>Chat on WhatsApp</span>
+                <span>Chat on WhatsApp ({companyData.phones[0].display})</span>
+              </a>
+
+              <a
+                href={`mailto:${companyData.email}`}
+                className="flex items-center gap-1.5 hover:text-gold-400 font-semibold transition-colors"
+              >
+                <Mail size={13} className="text-gold-400" />
+                <span>{companyData.email}</span>
               </a>
             </div>
           </div>

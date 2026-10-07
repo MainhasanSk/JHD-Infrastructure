@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, MessageSquare, MapPin, Send, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
+import { Phone, MessageSquare, MapPin, Send, CheckCircle2, ShieldCheck, Sparkles, Mail, Clock } from 'lucide-react';
 import { companyData } from '../data/companyData';
 
 export default function Contact() {
@@ -7,7 +7,7 @@ export default function Contact() {
     name: '',
     phone: '',
     email: '',
-    projectType: 'Residential Construction',
+    projectType: 'Residential Buildings',
     location: '',
     message: ''
   });
@@ -23,12 +23,12 @@ export default function Contact() {
   };
 
   const handleDirectWhatsApp = () => {
-    const text = `*New Construction Consultation Request*\nName: ${formData.name || 'Client'}\nPhone: ${formData.phone || 'Not provided'}\nEmail: ${formData.email || 'N/A'}\nProject Type: ${formData.projectType}\nProject Location: ${formData.location || 'Assam, India'}\nProject Details: ${formData.message || 'I would like to consult Axomi Construction regarding a new project.'}`;
+    const text = `*New Consultation Request — JHD Infrastructure*\nName: ${formData.name || 'Client'}\nPhone: ${formData.phone || 'Not provided'}\nEmail: ${formData.email || 'N/A'}\nService Required: ${formData.projectType}\nProject Location: ${formData.location || 'Guwahati / Assam'}\nProject Details: ${formData.message || 'I would like to consult JHD Infrastructure regarding a project / building permission.'}`;
     window.open(`https://wa.me/${companyData.whatsapp.number}?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   return (
-    <section id="contact" className="py-24 relative bg-navy-900 border-t border-slate-800/80">
+    <section id="contact" className="scroll-mt-20 py-24 relative bg-navy-900 border-t border-slate-800/80">
       {/* Blueprint grid accent */}
       <div className="absolute inset-0 bg-blueprint-dense opacity-20 pointer-events-none"></div>
 
@@ -43,16 +43,16 @@ export default function Contact() {
                 </span>
               </div>
               <h2 className="font-display font-black text-3xl sm:text-4xl text-white tracking-tight leading-tight">
-                Let's Talk About Your Project
+                Let's Talk About Your Dream Project
               </h2>
               <p className="text-sm text-slate-300 mt-3 leading-relaxed">
-                Connect directly with our leadership and civil engineering team. We are ready to review your architectural concepts, land dimensions, and construction timelines.
+                Reach out directly to our engineering, architectural, and GMDA permission team. We are ready to examine your plot size, architectural drawings, and construction timeline.
               </p>
             </div>
 
-            {/* Direct Phone Contact Cards */}
+            {/* Direct Contact Cards */}
             <div className="space-y-3.5">
-              {/* Phone 1 */}
+              {/* Phone Card */}
               <a
                 href={`tel:${companyData.phones[0].tel}`}
                 className="flex items-center gap-4 p-4 rounded-xl bg-navy-850 border border-slate-700/80 hover:border-gold-500/50 hover:bg-navy-800 transition-all duration-300 group shadow-lg"
@@ -62,31 +62,31 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
-                    Primary Contact Line
+                    Call / WhatsApp Helpline
                   </span>
-                  <span className="font-display font-bold text-base sm:text-lg text-white group-hover:text-gold-300 transition-colors">
+                  <span className="font-display font-bold text-base sm:text-lg text-white group-hover:text-gold-300 transition-colors font-mono">
                     {companyData.phones[0].display}
                   </span>
                   <span className="text-[11px] text-slate-400 block">Click to call immediately</span>
                 </div>
               </a>
 
-              {/* Phone 2 */}
+              {/* Email Card */}
               <a
-                href={`tel:${companyData.phones[1].tel}`}
+                href={`mailto:${companyData.email}`}
                 className="flex items-center gap-4 p-4 rounded-xl bg-navy-850 border border-slate-700/80 hover:border-gold-500/50 hover:bg-navy-800 transition-all duration-300 group shadow-lg"
               >
                 <div className="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 group-hover:bg-gold-500 group-hover:text-navy-950 transition-colors shrink-0">
-                  <Phone size={20} />
+                  <Mail size={20} />
                 </div>
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
-                    Direct Line
+                    Official Email
                   </span>
-                  <span className="font-display font-bold text-base sm:text-lg text-white group-hover:text-gold-300 transition-colors">
-                    {companyData.phones[1].display}
+                  <span className="font-display font-bold text-sm sm:text-base text-white group-hover:text-gold-300 transition-colors">
+                    {companyData.email}
                   </span>
-                  <span className="text-[11px] text-slate-400 block">Click to call immediately</span>
+                  <span className="text-[11px] text-slate-400 block">Send drawings & inquiries</span>
                 </div>
               </a>
 
@@ -103,12 +103,12 @@ export default function Contact() {
                   </div>
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300 block">
-                      Instant Messaging
+                      Fast Messaging
                     </span>
                     <span className="font-display font-bold text-base text-white">
                       Chat on WhatsApp
                     </span>
-                    <span className="text-[11px] text-emerald-400/80 block">Quick project inquiry</span>
+                    <span className="text-[11px] text-emerald-400/80 block">Direct consultation</span>
                   </div>
                 </div>
                 <span className="text-xs font-bold text-emerald-300 group-hover:translate-x-1 transition-transform">
@@ -117,14 +117,24 @@ export default function Contact() {
               </a>
             </div>
 
-            {/* Verified Location Card */}
-            <div className="p-4 rounded-xl bg-navy-850/60 border border-slate-800 flex items-start gap-3">
-              <MapPin size={18} className="text-gold-400 shrink-0 mt-0.5" />
-              <div>
-                <span className="text-xs font-bold text-white block">Operating Location</span>
-                <p className="text-xs text-slate-400">
-                  Assam, India • On-site operations across regional residential & commercial sites.
-                </p>
+            {/* Office Location Card */}
+            <div className="p-4 rounded-xl bg-navy-850/80 border border-slate-700/80 space-y-2">
+              <div className="flex items-start gap-3">
+                <MapPin size={20} className="text-gold-400 shrink-0 mt-0.5" />
+                <div>
+                  <span className="text-xs font-bold text-white block">Office Address</span>
+                  <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                    Sawkuchi, Dakshin Gaon, House N.3 (3rd floor), Near NEF college
+                  </p>
+                  <p className="text-xs text-gold-400 font-semibold mt-0.5">
+                    Guwahati, Assam • GMDA Areas & Other Locations
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-2 border-t border-slate-800 flex items-center gap-2 text-[11px] text-emerald-300">
+                <Clock size={13} />
+                <span>Fast 5-Day Building Permission Liaison Available</span>
               </div>
             </div>
           </div>
@@ -135,10 +145,10 @@ export default function Contact() {
               <div className="mb-6 pb-4 border-b border-slate-800 flex items-center justify-between">
                 <div>
                   <h3 className="font-display font-bold text-xl text-white">
-                    Request a Consultation
+                    Request a Project Consultation
                   </h3>
                   <p className="text-xs text-gold-400">
-                    Submit your parameters for a detailed discussion
+                    JHD Infrastructure • Engineer | Architect | Contractor
                   </p>
                 </div>
                 <div className="w-8 h-8 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-400">
@@ -155,7 +165,7 @@ export default function Contact() {
                     Thank You, {formData.name || 'Valued Client'}!
                   </h4>
                   <p className="text-sm text-slate-300 max-w-md mx-auto">
-                    Your project details have been recorded. Our civil engineering team will reach out directly at {formData.phone || 'your phone number'}.
+                    Your parameters have been logged. The engineering team at JHD Infrastructure will contact you promptly at {formData.phone || 'your phone number'}.
                   </p>
                   <div className="pt-4 flex flex-col sm:flex-row justify-center gap-3">
                     <button
@@ -201,7 +211,7 @@ export default function Contact() {
                         required
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="e.g. 98765 43210"
+                        placeholder="e.g. 63020 14977"
                         className="w-full px-4 py-3 rounded-lg bg-navy-900 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors"
                       />
                     </div>
@@ -224,7 +234,7 @@ export default function Contact() {
 
                     <div>
                       <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                        Project Type
+                        Service Required
                       </label>
                       <select
                         name="projectType"
@@ -232,25 +242,28 @@ export default function Contact() {
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-lg bg-navy-900 border border-slate-700 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors"
                       >
-                        <option value="Residential Construction">Residential Construction</option>
-                        <option value="Commercial Construction">Commercial Construction</option>
-                        <option value="Project Management">Project Management</option>
-                        <option value="Interior Architecture & Execution">Interior Architecture & Execution</option>
-                        <option value="Civil Structure & Masonry">Civil Structure & Masonry</option>
+                        <option value="Residential Buildings">Residential Buildings & Villas</option>
+                        <option value="Commercial Buildings">Commercial Buildings & Complexes</option>
+                        <option value="GMDA 5-Day Building Permission">Building Permission & Approval (5 Days)</option>
+                        <option value="Engineering Consultancy & BOQ">Engineering Consultancy & BOQ</option>
+                        <option value="PEB Structures & Warehouses">PEB Structures & Warehouses</option>
+                        <option value="Farm Houses & Agricultural Structures">Farm Houses & Agriculture</option>
+                        <option value="Swimming Pools & Resorts">Swimming Pools, Resorts & Hotels</option>
+                        <option value="Interior & Exterior Works">Interior & Exterior Works</option>
                       </select>
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      Project Location
+                      Project Location / Plot Area
                     </label>
                     <input
                       type="text"
                       name="location"
                       value={formData.location}
                       onChange={handleChange}
-                      placeholder="e.g. Guwahati / Nalbari / Barpeta / Assam"
+                      placeholder="e.g. Sawkuchi / Guwahati / GMDA Area / Assam"
                       className="w-full px-4 py-3 rounded-lg bg-navy-900 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors"
                     />
                   </div>
@@ -264,7 +277,7 @@ export default function Contact() {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Approximate plot size, number of storeys, preferred construction timeline, or specific requirements..."
+                      placeholder="Plot dimensions, number of floors, construction timeline, building permission needs..."
                       className="w-full px-4 py-3 rounded-lg bg-navy-900 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 resize-none transition-colors"
                     ></textarea>
                   </div>
@@ -275,7 +288,7 @@ export default function Contact() {
                       className="flex-1 inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-md text-xs font-bold uppercase tracking-wider text-navy-950 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 hover:from-gold-300 hover:to-gold-500 shadow-gold-sm transition-all duration-300"
                     >
                       <Send size={15} />
-                      <span>Request a Consultation</span>
+                      <span>Submit Request</span>
                     </button>
 
                     <button

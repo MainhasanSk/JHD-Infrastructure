@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Send, Phone, MessageSquare, CheckCircle } from 'lucide-react';
+import { X, Send, Phone, MessageSquare, CheckCircle, Clock } from 'lucide-react';
 import { companyData } from '../data/companyData';
 
 export default function ConsultationModal({ isOpen, onClose }) {
@@ -7,7 +7,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
     name: '',
     phone: '',
     email: '',
-    projectType: 'Residential Construction',
+    projectType: 'Residential Buildings & Villas',
     location: '',
     message: ''
   });
@@ -25,7 +25,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
   };
 
   const handleWhatsAppSubmit = () => {
-    const text = `*New Consultation Request*\nName: ${formData.name || 'Not specified'}\nPhone: ${formData.phone || 'Not specified'}\nEmail: ${formData.email || 'Not specified'}\nProject Type: ${formData.projectType}\nLocation: ${formData.location || 'Not specified'}\nMessage: ${formData.message || 'I would like to discuss a project with Axomi Construction.'}`;
+    const text = `*New Consultation Request — JHD Infrastructure*\nName: ${formData.name || 'Not specified'}\nPhone: ${formData.phone || 'Not specified'}\nEmail: ${formData.email || 'Not specified'}\nService Required: ${formData.projectType}\nLocation: ${formData.location || 'Not specified'}\nMessage: ${formData.message || 'I would like to discuss a project with JHD Infrastructure.'}`;
     window.open(`https://wa.me/${companyData.whatsapp.number}?text=${encodeURIComponent(text)}`, '_blank');
   };
 
@@ -41,7 +41,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
               Request Project Consultation
             </h3>
             <p className="text-xs text-gold-400">
-              Axomi Construction Private Limited
+              JHD Infrastructure • Engineer | Architect | Contractor
             </p>
           </div>
           <button
@@ -63,7 +63,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
                 Consultation Request Received!
               </h4>
               <p className="text-sm text-slate-300 max-w-sm mx-auto">
-                Thank you, {formData.name || 'valued client'}. Our engineering team will review your project parameters and get in touch directly.
+                Thank you, {formData.name || 'valued client'}. Our civil engineering team will review your parameters and get in touch with you promptly.
               </p>
               <div className="pt-4 flex flex-col gap-2.5">
                 <button
@@ -108,7 +108,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="Your contact number"
+                    placeholder="e.g. 63020 14977"
                     className="w-full px-3.5 py-2.5 rounded-md bg-navy-850 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500"
                   />
                 </div>
@@ -117,7 +117,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
                   <label className="block text-xs font-semibold text-slate-300 mb-1">
-                    Project Type
+                    Service Required
                   </label>
                   <select
                     name="projectType"
@@ -125,11 +125,14 @@ export default function ConsultationModal({ isOpen, onClose }) {
                     onChange={handleChange}
                     className="w-full px-3.5 py-2.5 rounded-md bg-navy-850 border border-slate-700 text-sm text-white focus:outline-none focus:border-gold-500"
                   >
-                    <option value="Residential Construction">Residential Construction</option>
-                    <option value="Commercial Construction">Commercial Construction</option>
-                    <option value="Project Management">Project Management</option>
-                    <option value="Interior Architecture & Execution">Interior Architecture & Execution</option>
-                    <option value="Civil Structure & Masonry">Civil Structure & Masonry</option>
+                    <option value="Residential Buildings & Villas">Residential Buildings & Villas</option>
+                    <option value="Commercial Buildings">Commercial Buildings</option>
+                    <option value="GMDA 5-Day Building Permission">Building Permission (5 Days)</option>
+                    <option value="Engineering Consultancy & BOQ">Engineering Consultancy & BOQ</option>
+                    <option value="PEB Structures & Warehouses">PEB Structures & Warehouses</option>
+                    <option value="Farm Houses & Agriculture">Farm Houses & Agriculture</option>
+                    <option value="Swimming Pools & Resorts">Swimming Pools & Resorts</option>
+                    <option value="Interior & Exterior Works">Interior & Exterior Works</option>
                   </select>
                 </div>
                 <div>
@@ -141,7 +144,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
                     name="location"
                     value={formData.location}
                     onChange={handleChange}
-                    placeholder="e.g. Guwahati, Assam"
+                    placeholder="e.g. Sawkuchi / Guwahati / Assam"
                     className="w-full px-3.5 py-2.5 rounded-md bg-navy-850 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500"
                   />
                 </div>
@@ -170,7 +173,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Plot size, number of floors, timeline, or specific requirements..."
+                  placeholder="Plot size, number of floors, construction timeline, building permission requirements..."
                   className="w-full px-3.5 py-2.5 rounded-md bg-navy-850 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-500 resize-none"
                 ></textarea>
               </div>
@@ -197,12 +200,8 @@ export default function ConsultationModal({ isOpen, onClose }) {
               <div className="text-center pt-2">
                 <span className="text-[11px] text-slate-400">
                   Or call directly:{' '}
-                  <a href={`tel:${companyData.phones[0].tel}`} className="text-gold-400 font-semibold underline">
+                  <a href={`tel:${companyData.phones[0].tel}`} className="text-gold-400 font-semibold font-mono underline">
                     {companyData.phones[0].display}
-                  </a>{' '}
-                  /{' '}
-                  <a href={`tel:${companyData.phones[1].tel}`} className="text-gold-400 font-semibold underline">
-                    {companyData.phones[1].display}
                   </a>
                 </span>
               </div>

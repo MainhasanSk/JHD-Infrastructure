@@ -1,9 +1,9 @@
 import React from 'react';
-import { CheckCircle2, ShieldCheck, Layers, Eye, Users, TrendingUp, Sparkles } from 'lucide-react';
+import { CheckCircle2, ShieldCheck, Layers, Eye, Users, TrendingUp, Sparkles, Clock, Calculator, Award } from 'lucide-react';
 import { companyData } from '../data/companyData';
 
 export default function WhyChoose({ onOpenConsultation }) {
-  const icons = [ShieldCheck, Layers, Eye, Sparkles, Users, TrendingUp];
+  const icons = [Clock, Award, Calculator, ShieldCheck, Users, TrendingUp];
 
   return (
     <section className="py-24 relative overflow-hidden bg-navy-950">
@@ -14,22 +14,22 @@ export default function WhyChoose({ onOpenConsultation }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           {/* Left Column: Authentic On-Site Construction Image */}
           <div className="lg:col-span-5 relative order-2 lg:order-1">
-            <div className="relative rounded-2xl overflow-hidden border border-gold-500/30 p-2 bg-gradient-to-b from-navy-800 to-navy-900 shadow-2xl">
+            <div className="relative rounded-2xl overflow-hidden border border-gold-500/35 p-2 bg-gradient-to-b from-navy-800 to-navy-900 shadow-2xl">
               <div className="relative rounded-xl overflow-hidden aspect-[3/4] bg-navy-950">
                 <img
                   src="/work3.jpg"
-                  alt="Axomi Construction Structural Civil Site Execution"
+                  alt="JHD Infrastructure On-Site Civil Engineering Supervision"
                   className="w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent"></div>
 
                 {/* Overlaid Project Proof Card */}
-                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-navy-950/90 backdrop-blur-md border border-slate-700/80">
+                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-navy-950/95 backdrop-blur-md border border-slate-700/80">
                   <span className="text-[10px] uppercase font-bold tracking-wider text-gold-400 block mb-1">
                     On-Site Civil Integrity
                   </span>
                   <p className="text-xs text-white font-semibold leading-snug">
-                    RCC column reinforcement, precision brickwork & structural slab casting in active progress.
+                    RCC framing, column reinforcement, precision brickwork & PEB trusses engineered to seismic standards.
                   </p>
                 </div>
               </div>
@@ -41,8 +41,8 @@ export default function WhyChoose({ onOpenConsultation }) {
                 <CheckCircle2 size={16} />
               </div>
               <div>
-                <span className="text-[10px] uppercase font-bold text-slate-400 block">Civil Standard</span>
-                <span className="text-xs font-bold text-white">Strict Quality Control</span>
+                <span className="text-[10px] uppercase font-bold text-slate-400 block">JHD Standard</span>
+                <span className="text-xs font-bold text-white">Quality Work & On-Time Delivery</span>
               </div>
             </div>
           </div>
@@ -52,14 +52,15 @@ export default function WhyChoose({ onOpenConsultation }) {
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 mb-3">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-gold-400">
-                  Our Commitment
+                  Our Quality Commitment
                 </span>
               </div>
               <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
-                Why Choose AXOMI?
+                Why Choose <br />
+                <span className="text-gold-gradient">JHD INFRASTRUCTURE?</span>
               </h2>
               <p className="text-sm sm:text-base text-slate-300 mt-3">
-                We combine hands-on civil engineering discipline with clear, honest communication to build properties that deliver lasting security and pride.
+                We bridge the gap between design vision and construction reality. As registered Engineers, Architects, and Contractors, we ensure zero discrepancy between your drawings, municipal permissions, and physical building.
               </p>
             </div>
 
@@ -73,7 +74,7 @@ export default function WhyChoose({ onOpenConsultation }) {
                     className="p-4 rounded-xl bg-navy-900/80 border border-slate-800 hover:border-gold-500/40 transition-all duration-300 hover:bg-navy-850/80 group"
                   >
                     <div className="flex items-center gap-2.5 mb-2">
-                      <div className="w-7 h-7 rounded-lg bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 group-hover:bg-gold-500 group-hover:text-navy-950 transition-colors">
+                      <div className="w-7 h-7 rounded-lg bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 group-hover:bg-gold-500 group-hover:text-navy-950 transition-colors shrink-0">
                         <Icon size={14} />
                       </div>
                       <h3 className="text-xs sm:text-sm font-bold text-white group-hover:text-gold-300 transition-colors">

@@ -6,7 +6,7 @@ export default function FeaturedProject({ onSelectProject }) {
   const featured = companyData.projects[0]; // Modern Architectural Residence
 
   return (
-    <section className="py-20 relative bg-navy-900 border-t border-b border-slate-800/80 overflow-hidden">
+    <section id="projects" className="scroll-mt-20 py-20 relative bg-navy-900 border-t border-b border-slate-800/80 overflow-hidden">
       {/* Background blueprint subtle grid */}
       <div className="absolute inset-0 bg-blueprint-dense opacity-20 pointer-events-none"></div>
 

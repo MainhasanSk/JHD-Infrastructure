@@ -62,22 +62,21 @@
     -webkit-text-fill-color: transparent;
   }
 
-  /* Authentic Axomi 3D Metallic Magenta Logo Typography */
-  .text-axomi-logo {
+  /* Authentic JHD 3D Metallic Gold Logo Typography */
+  .text-jhd-logo {
     font-family: 'Outfit', 'Cabinet Grotesk', system-ui, sans-serif;
     font-weight: 900;
-    letter-spacing: 0.03em;
-    background: linear-gradient(180deg, #FF457E 0%, #E6195E 42%, #BA104A 78%, #850731 100%);
+    letter-spacing: 0.04em;
+    background: linear-gradient(180deg, #FFFDE8 0%, #F5CD4F 32%, #D4AF37 68%, #8C690F 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0px 1px 0px #F5CD4F) 
-            drop-shadow(1px 1px 0px #B89224) 
-            drop-shadow(0 2px 4px rgba(0, 0, 0, 0.75));
+    filter: drop-shadow(0px 1px 1px rgba(255, 255, 255, 0.4)) 
+            drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.9));
   }
 
-  .text-axomi-logo-sub {
+  .text-jhd-logo-sub {
     font-family: 'Outfit', sans-serif;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     background: linear-gradient(180deg, #FFF9D2 0%, #F5CD4F 45%, #D4AF37 80%, #947214 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

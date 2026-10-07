@@ -1,17 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { X, ChevronLeft, ChevronRight, MessageSquare, MapPin, CheckCircle2 } from 'lucide-react';
 import { companyData } from '../data/companyData';
 
 export default function LightboxModal({ project, projects, onClose, onSelectProject }) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const projectImages = project?.images || (project ? [project.image] : []);
+
   useEffect(() => {
+    setCurrentImageIndex(0);
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowRight') handleNext();
-      if (e.key === 'ArrowLeft') handlePrev();
+      if (e.key === 'ArrowRight') {
+        if (projectImages.length > 1) {
+          setCurrentImageIndex((prev) => (prev + 1) % projectImages.length);
+        } else {
+          handleNext();
+        }
+      }
+      if (e.key === 'ArrowLeft') {
+        if (projectImages.length > 1) {
+          setCurrentImageIndex((prev) => (prev - 1 + projectImages.length) % projectImages.length);
+        } else {
+          handlePrev();
+        }
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [project]);
+  }, [project, projectImages.length]);
 
   if (!project) return null;
 
@@ -28,7 +44,7 @@ export default function LightboxModal({ project, projects, onClose, onSelectProj
   };
 
   const waInquiryLink = `https://wa.me/${companyData.whatsapp.number}?text=${encodeURIComponent(
-    `Hello Axomi Construction, I am interested in learning more about your project: "${project.title}" (${project.category}). Could you please share more details?`
+    `Hello JHD Infrastructure, I am interested in learning more about your project: "${project.title}" (${project.category}). Could you please share more details?`
   )}`;
 
   return (
@@ -61,28 +77,61 @@ export default function LightboxModal({ project, projects, onClose, onSelectProj
         {/* Modal Body */}
         <div className="grid grid-cols-1 lg:grid-cols-12 overflow-y-auto">
           {/* Project Image Viewport */}
-          <div className="relative lg:col-span-8 bg-black flex items-center justify-center min-h-[300px] sm:min-h-[420px] max-h-[60vh] lg:max-h-none overflow-hidden group">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-contain max-h-[68vh]"
-            />
+          <div className="relative lg:col-span-8 bg-black flex flex-col items-center justify-center min-h-[300px] sm:min-h-[420px] max-h-[60vh] lg:max-h-none overflow-hidden group">
+            <div className="relative flex-1 w-full h-full flex items-center justify-center p-2">
+              <img
+                src={projectImages[currentImageIndex]}
+                alt={`${project.title} - Image ${currentImageIndex + 1}`}
+                className="w-full h-full object-contain max-h-[60vh]"
+              />
 
-            {/* Navigation Arrows */}
-            <button
-              onClick={handlePrev}
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy-950/70 border border-slate-700/80 text-white flex items-center justify-center hover:bg-gold-500 hover:text-navy-950 transition-colors shadow-lg"
-              aria-label="Previous project"
-            >
-              <ChevronLeft size={22} />
-            </button>
-            <button
-              onClick={handleNext}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy-950/70 border border-slate-700/80 text-white flex items-center justify-center hover:bg-gold-500 hover:text-navy-950 transition-colors shadow-lg"
-              aria-label="Next project"
-            >
-              <ChevronRight size={22} />
-            </button>
+              {/* Navigation Arrows for Project/Images */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (projectImages.length > 1) {
+                    setCurrentImageIndex((prev) => (prev - 1 + projectImages.length) % projectImages.length);
+                  } else {
+                    handlePrev();
+                  }
+                }}
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy-950/70 border border-slate-700/80 text-white flex items-center justify-center hover:bg-gold-500 hover:text-navy-950 transition-colors shadow-lg opacity-0 group-hover:opacity-100"
+                aria-label="Previous"
+              >
+                <ChevronLeft size={22} />
+              </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (projectImages.length > 1) {
+                    setCurrentImageIndex((prev) => (prev + 1) % projectImages.length);
+                  } else {
+                    handleNext();
+                  }
+                }}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy-950/70 border border-slate-700/80 text-white flex items-center justify-center hover:bg-gold-500 hover:text-navy-950 transition-colors shadow-lg opacity-0 group-hover:opacity-100"
+                aria-label="Next"
+              >
+                <ChevronRight size={22} />
+              </button>
+            </div>
+
+            {/* Thumbnails (Only show if multiple images exist) */}
+            {projectImages.length > 1 && (
+              <div className="w-full bg-navy-950/90 border-t border-slate-800 p-3 flex gap-2 overflow-x-auto custom-scrollbar">
+                {projectImages.map((img, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentImageIndex(idx)}
+                    className={`relative shrink-0 w-16 h-16 rounded-md overflow-hidden border-2 transition-all duration-300 ${
+                      currentImageIndex === idx ? 'border-gold-500 shadow-gold-sm opacity-100' : 'border-transparent opacity-60 hover:opacity-100'
+                    }`}
+                  >
+                    <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Project Details Sidebar */}
@@ -135,7 +184,7 @@ export default function LightboxModal({ project, projects, onClose, onSelectProj
                 href={`tel:${companyData.phones[0].tel}`}
                 className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-md text-xs font-semibold text-slate-300 bg-navy-900 hover:bg-navy-800 border border-slate-700 transition-colors"
               >
-                <span>Call Axomi Construction</span>
+                <span>Call JHD Infrastructure</span>
               </a>
             </div>
           </div>

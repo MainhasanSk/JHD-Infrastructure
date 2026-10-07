@@ -9,13 +9,13 @@ import StickyMobileBar from './components/StickyMobileBar';
 import Hero from './sections/Hero';
 import TrustStrip from './sections/TrustStrip';
 import About from './sections/About';
-import Services from './sections/Services';
+import BuildingPermission from './sections/BuildingPermission';
 import WhyChoose from './sections/WhyChoose';
 import FeaturedProject from './sections/FeaturedProject';
 import ProjectShowcase from './sections/ProjectShowcase';
 import ConstructionProcess from './sections/ConstructionProcess';
 import VisualStory from './sections/VisualStory';
-import Team from './sections/Team';
+import Founder from './sections/Founder';
 import Testimonials from './sections/Testimonials';
 import FinalCTA from './sections/FinalCTA';
 import Contact from './sections/Contact';
@@ -49,40 +49,40 @@ export default function App() {
           onOpenEstimator={handleOpenEstimator}
         />
 
-        {/* 2. Trust & Identity Strip */}
+        {/* 2. Trust & Identity Strip (4 Core Pillars) */}
         <TrustStrip />
 
-        {/* 3. About Axomi */}
-        <About onOpenConsultation={handleOpenConsultation} />
-
-        {/* 4. Services Section */}
-        <Services onOpenConsultation={handleOpenConsultation} />
-
-        {/* 5. Why Choose Axomi */}
-        <WhyChoose onOpenConsultation={handleOpenConsultation} />
-
-        {/* 6. Featured Project Showcase */}
+        {/* 3. Featured Project Showcase */}
         <FeaturedProject onSelectProject={handleSelectProject} />
 
-        {/* 7. Comprehensive Real Project Showcase */}
+        {/* 4. Comprehensive Real Project Showcase (Our Work Speaks for Us) */}
         <ProjectShowcase onSelectProject={handleSelectProject} />
 
-        {/* 8. Construction Process (From Vision to Reality) */}
+        {/* 5. About JHD Infrastructure */}
+        <About onOpenConsultation={handleOpenConsultation} />
+
+        {/* 6. Building Permission & GMDA Fast 5-Day Approvals */}
+        <BuildingPermission onOpenConsultation={handleOpenConsultation} />
+
+        {/* 7. Why Choose JHD Infrastructure */}
+        <WhyChoose onOpenConsultation={handleOpenConsultation} />
+
+        {/* 9. Construction Process (From Land Survey to Handover) */}
         <ConstructionProcess onOpenConsultation={handleOpenConsultation} />
 
-        {/* 9. Visual Campaign Story */}
+        {/* 10. Visual Corporate Promise */}
         <VisualStory onOpenConsultation={handleOpenConsultation} />
 
-        {/* 10. Meet Our Team */}
-        <Team onOpenConsultation={handleOpenConsultation} />
+        {/* 11. Meet the Founder */}
+        <Founder onOpenConsultation={handleOpenConsultation} />
 
-        {/* 11. Testimonials & Quality Assurances */}
+        {/* 12. Testimonials & Handover Assurances */}
         <Testimonials onOpenConsultation={handleOpenConsultation} />
 
-        {/* 12. Final Call To Action */}
+        {/* 13. Final Call To Action */}
         <FinalCTA onOpenConsultation={handleOpenConsultation} />
 
-        {/* 13. Contact Section with Direct Numbers */}
+        {/* 14. Contact Section with Direct Numbers */}
         <Contact />
       </main>
 
