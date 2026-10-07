@@ -77,15 +77,22 @@ export default function LightboxModal({ project, projects, onClose, onSelectProj
         {/* Modal Body */}
         <div className="grid grid-cols-1 lg:grid-cols-12 overflow-y-auto">
           {/* Project Image Viewport */}
-          <div className="relative lg:col-span-8 bg-black flex flex-col items-center justify-center min-h-[300px] sm:min-h-[420px] max-h-[60vh] lg:max-h-none overflow-hidden group">
-            <div className="relative flex-1 w-full h-full flex items-center justify-center p-2">
+          <div className="relative lg:col-span-8 bg-black flex flex-col items-center justify-between min-h-[260px] sm:min-h-[380px] lg:min-h-[480px] group">
+            <div className="relative flex-1 w-full flex items-center justify-center p-2 sm:p-4 min-h-[220px] max-h-[45vh] sm:max-h-[55vh] lg:max-h-[65vh]">
               <img
                 src={projectImages[currentImageIndex]}
                 alt={`${project.title} - Image ${currentImageIndex + 1}`}
-                className="w-full h-full object-contain max-h-[60vh]"
+                className="w-full h-full object-contain max-h-[42vh] sm:max-h-[52vh] lg:max-h-[62vh]"
               />
 
-              {/* Navigation Arrows for Project/Images */}
+              {/* Counter Badge on Image */}
+              {projectImages.length > 1 && (
+                <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-navy-950/85 backdrop-blur-md border border-gold-500/40 text-[10px] font-mono font-bold text-gold-300">
+                  {currentImageIndex + 1} / {projectImages.length}
+                </div>
+              )}
+
+              {/* Navigation Arrows for Project/Images (Visible on mobile for easy touch) */}
               <button
                 onClick={(e) => {
                   e.stopPropagation();
@@ -95,10 +102,10 @@ export default function LightboxModal({ project, projects, onClose, onSelectProj
                     handlePrev();
                   }
                 }}
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy-950/70 border border-slate-700/80 text-white flex items-center justify-center hover:bg-gold-500 hover:text-navy-950 transition-colors shadow-lg opacity-0 group-hover:opacity-100"
+                className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-navy-950/85 border border-slate-700/80 text-white flex items-center justify-center hover:bg-gold-500 hover:text-navy-950 transition-colors shadow-lg opacity-85 sm:opacity-0 sm:group-hover:opacity-100"
                 aria-label="Previous"
               >
-                <ChevronLeft size={22} />
+                <ChevronLeft size={18} className="sm:w-[22px] sm:h-[22px]" />
               </button>
               <button
                 onClick={(e) => {
@@ -109,23 +116,29 @@ export default function LightboxModal({ project, projects, onClose, onSelectProj
                     handleNext();
                   }
                 }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy-950/70 border border-slate-700/80 text-white flex items-center justify-center hover:bg-gold-500 hover:text-navy-950 transition-colors shadow-lg opacity-0 group-hover:opacity-100"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-navy-950/85 border border-slate-700/80 text-white flex items-center justify-center hover:bg-gold-500 hover:text-navy-950 transition-colors shadow-lg opacity-85 sm:opacity-0 sm:group-hover:opacity-100"
                 aria-label="Next"
               >
-                <ChevronRight size={22} />
+                <ChevronRight size={18} className="sm:w-[22px] sm:h-[22px]" />
               </button>
             </div>
 
-            {/* Thumbnails (Only show if multiple images exist) */}
+            {/* Thumbnails Strip - Guaranteed Visible on Mobile (shrink-0) */}
             {projectImages.length > 1 && (
-              <div className="w-full bg-navy-950/90 border-t border-slate-800 p-3 flex gap-2 overflow-x-auto custom-scrollbar">
+              <div className="w-full shrink-0 bg-navy-950/95 border-t border-slate-800/90 px-3 py-2 sm:p-3 flex items-center gap-2 overflow-x-auto">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 shrink-0 hidden xs:inline">
+                  Photos:
+                </span>
                 {projectImages.map((img, idx) => (
                   <button
                     key={idx}
                     onClick={() => setCurrentImageIndex(idx)}
-                    className={`relative shrink-0 w-16 h-16 rounded-md overflow-hidden border-2 transition-all duration-300 ${
-                      currentImageIndex === idx ? 'border-gold-500 shadow-gold-sm opacity-100' : 'border-transparent opacity-60 hover:opacity-100'
+                    className={`relative shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                      currentImageIndex === idx
+                        ? 'border-gold-400 shadow-gold-sm opacity-100 scale-105'
+                        : 'border-slate-700/70 opacity-60 hover:opacity-100'
                     }`}
+                    aria-label={`View photo ${idx + 1}`}
                   >
                     <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
                   </button>
